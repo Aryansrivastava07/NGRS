@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="/assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/employee_dashboard.css">
+</head>
+<body>
+    <nav>
+        <div class="nav_logo">
+            <img src="/assets/logo.png" alt="logo">
+            <p>Codyaan</p>
+        </div>
+        <div class="nav_list">
+            <div>Home</div>
+            <div class="active"><a href="/employeeDashboard">Dashboard</a></div>
+            <div>FAQs</div>
+            <div><a href="/employeeProfile">Profile</a></div>
+        </div>
+    </nav>
+    <section>
+        <div class="sidebar">
+            <h2>Graviences</h2>
+            <div class="graviences">
+                <% complaints.forEach(complaint => { %>
+                    <form action="/employeeDashboard/<%= complaint.id %>" method="post" >
+                        <button type="submit">
+                            <status><img src="/assets/<%= complaint.status %>.png" alt=""></status>
+                            <p class="complaint_name" id="complaint_name" data-set="<%= complaint.id %>"><%= complaint.username %></p>
+                        </button>
+                    </form>
+                <% }); %>
+                
+            </div>
+        </div>
+        <div class="gravience" >
+            <% if(complaint){ %>
+            <h3 id="complaint" data-set="<%= complaint.id %>"><%= complaint.username %></h3>
+            <div class="brief cards">
+                <h4>Brief :</h4>
+                <p>
+                    <%= complaint.complaint %>
+                </p>
+            </div>
+            <div class="user_details cards">
+                <h4>User Details :</h4>
+                <div>
+                    <p class="heading">Name</p>
+                    <p class="text"><%= complaint.username %></p>
+                    <p class="heading">Email</p>
+                    <p class="text"><%= complaint.userId %></p>
+                    <p class="heading">Bank</p>
+                    <p class="text"><%= complaint.bank %></p>
+                    <p class="heading">Location</p>
+                    <p class="text"><%= complaint.userLocation %></p>
+                </div>
+            </div>
+            <div class="documents cards">
+                <h4>Documents :</h4>
+                <div>
+                    <% (complaint.documents).forEach(document => { %>
+                        <a href="http://<%= document.documentUrl %>" target="_blank">
+                            <div class="document">
+                                <img src="/assets/document.png">
+                                <p><%= document.documentName %></p>
+                            </div>
+                        </a>
+                    <% }); %>
+                </div>
+            </div>
+            <div class="gravience_button">
+                <% if(complaint.status == 'pending'){ %>    
+                    <form action="/employeeDashboard/<%= complaint.id %>/updateStatus" method="post">
+                        <button type="submit" class="completed">Mark as completed</button>
+                    </form>
+                <% } %>
+                <button type="submit" class="authority">Forward to higher Authority</button>
+            </div>
+            <%}%>
+        </div>
+    </section>
+</body>
+<script src="/js/employee_dashboard.js"></script>
+
+</html>

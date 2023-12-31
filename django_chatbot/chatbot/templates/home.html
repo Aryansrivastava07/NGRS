@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap&family=Alkalami&family=Secular+One&display=swap&family=Lato:wght@900&display=swap&family=Titillium+Web:wght@900&display=swap&family=Aclonica:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --aclonica: 'Aclonica', sans-serif;
+    --bungee: 'Bungee Spice', Copperplate, Papyrus, fantasy, cursive;
+}
+
+body {
+    background-color: rgb(255, 255, 255);
+}
+
+nav {
+    height: 10vh;
+    height: 10svh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    justify-content: space-between;
+    padding-top: .3em;
+    top: 0;
+    z-index: 10;
+    background-color: transparent;
+}
+button{
+    padding: 1em 2em;
+    border: none;
+    font-size: medium;
+    font-family: monospace;
+    font-weight: bold;
+    width: fit-content;
+    margin: 3em auto;
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgb(186, 186, 186);
+}
+button:active{
+    background-color: rgb(186, 186, 186);
+    scale: 0.9;
+    transition: 0.3s;
+}
+nav button{
+    margin-right: 4em;
+    background-color: rgb(192, 26, 26);
+    color: white;
+}
+nav button:hover{
+    background-color: rgb(201, 70, 52);
+    color: white;
+}
+nav button:active{
+    background-color: rgb(201, 70, 52);
+    color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 0 4em;
+}
+
+.logo p {
+    color: white;
+    font-size: medium;
+    font-family: var(--aclonica);
+    transform: translateX(-30%);
+}
+
+.logo img {
+    width: 100%;
+    object-fit: contain;
+}
+
+header {
+    padding-top: 10dvh;
+    height: 80dvh;
+    width: 100%;
+    background: linear-gradient(to left, rgb(255, 233, 233) 60%, rgb(201, 70, 52) 65%);
+    margin-bottom: 20dvh;
+}
+
+.heading_container {
+    width: 90%;
+    /* {% load static %} */
+    background: url("{% static 'aa.jpg' %}") no-repeat center top/cover;
+    /* background: url('/assets/aa.jpg'); */
+    border-radius: 5px;
+    height: 110%;
+    margin: 1em auto;
+    box-shadow: 0 0 10px 2px rgb(201, 70, 52);
+}
+
+.heading {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.heading_container h1,
+.heading_container p {
+    transform: translateY(10%);
+    text-align: center;
+    font-size: clamp(1rem, 3vw, 4rem);
+    font-family: var(--bungee);
+    background-color: rgb(255, 255, 255);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.heading_container p {
+    text-wrap: balance;
+    font-weight: 400;
+    font-size: clamp(1rem, 1.5vw, 4rem);
+    font-family: var(--aclonica);
+}
+
+.container:is(:not(.full-width)) {
+   width: 90%;
+    padding: 1em 2em;
+    margin: 1em auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    justify-content: space-evenly;
+    margin-bottom: 2em;
+}
+
+.full-width {
+    padding: 4em;
+    width: 100%;
+    color: white;
+    background-color: rgb(49, 45, 42);
+}
+div:has(> h2) {
+    flex: 0 0 100%;
+}
+.container:is(:not(.full-width)) p{
+    width: 400px;
+}
+h2 {
+    margin-bottom: 1em;
+    font-size: 1.8rem;
+    font-family: var(--aclonica);
+    width: fit-content;
+    margin-bottom: 2em;
+}
+   
+.full-width h2::after {
+    background-color: white;
+}
+
+h3::after,h2::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 5px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+}
+h3::after{
+    transform: translateY(200%);
+}
+
+.container p,
+.container li {
+    font-size: x-large;
+}
+.container-element{
+    /* width:fit-content; */
+    max-width: 33%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin: 1em;
+}
+.container-element h3{
+    margin-top: 1em;
+    font-size: 1.2rem;
+    font-family: var(--aclonica);
+}
+section{
+    background:url(https://img.freepik.com/premium-photo/abstract-17-light-background-wallpaper-colorful-gradient-blurry-soft-smooth-motion-bright-shine_792836-68839.jpg),rgba(255, 255, 255, 0.352) no-repeat center top/cover;
+    background-blend-mode: color-burn;
+    background-size: 200%;
+    animation: gradient 10s ease infinite alternate;
+}
+@keyframes gradient {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 100%;
+    }
+    100%{
+        background-position: 00% 50%;
+    }
+}
+footer{
+    padding:1em 2em;
+    width: 100%;
+    text-align: center;
+    color: white;
+    background-color: rgb(49, 49, 49);
+    font-family:monospace;
+}
+header a{
+    margin: 3em auto;
+}
+    </style>
+    
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            {% load static %}
+            <img src="{% static 'logo.png' %}" alt="logo" height="100" width="auto">
+            <p>Codyaan</p>
+        </div>
+        <a href="{% url 'register' %}"><button type="button">Log-in/Sign-up</button></a>
+    </nav>
+    <header>
+        <div class="heading_container">
+            <div class="heading">
+                <h1>NGRS
+                </h1>
+                <p>National Grievance Redressal system is a streamlined grievance lodging and tracking solution that
+                    leverages the power of vector
+                    search and LLMS.</p>
+                    <a href="{% url 'register' %}"><button type="button">Log-in/Sign-up</button></a>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container full-width">
+            <h2>Welcome to National Grievance Redressal system </h2>
+            <p>Welcome to the National Grievance Redressal System (NGRS), an innovative platform powered by an AI
+                chatbot
+                designed to transform the way grievances are addressed in our nation. Our mission is to provide a
+                seamless
+                and efficient grievance redressal experience for all citizens.</p>
+        </div>
+        <div class="container">
+            <div>
+                <h2>ABOUT NGRS</h2>
+            </div>
+            <div class="container-element">
+                <i class="fa-solid fa-file fa-2xl"></i>
+                <h3>Introduction</h3>
+                <p>NGRS is an AI-driven system for national grievance resolution</p>
+            </div>
+            <div class="container-element">
+                <i class="fa-solid fa-user-shield fa-2xl"></i>
+                <h3>Purpose</h3>
+                <p>
+                    AI employed to address and resolve citizen grievances efficiently</p>
+            </div>
+            <div class="container-element">
+                <i class="fa-brands fa-digital-ocean fa-2xl"></i>
+                <h3>Digital Governance</h3>
+                <p>Governments worldwide adopt AI for governance in our digital era</p>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <h2>What We Offer</h2>
+            </div>
+            <div class="container-element">
+                <i class="fa-solid fa-star fa-2xl"></i>
+                <h3>Tailored Features</h3>
+                <p>NGRS suits modern citizens' unique needs with its comprehensive feature set.</p>
+            </div>
+
+            <div class="container-element">
+                <i class="fa-solid fa-user-group fa-2xl"></i>
+                <h3>User-Friendly Interaction</h3>
+                <p>Easily lodge grievances, track progress, and receive timely updates</p>
+            </div>
+            <div class="container-element">
+                <i class="fa-solid fa-shield fa-2xl"></i>
+                <h3>Empowering Voices</h3>
+                <p>NGRS equips users with tools to ensure their voices are effectively heard</p>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <h2>Advantages of NGRS</h2>
+            </div>
+            <div class="container-element">
+                <i class="fa-solid fa-feather fa-2xl"></i>
+                <h3>Efficiency</h3>
+                <p>Our AI chatbot streamlines the grievance redressal process, saving you time and
+                    resources</p>
+            </div>
+            <div class="container-element">
+                <i class="fa-brands fa-accessible-icon fa-2xl"></i>
+                <h3>Accessibility</h3>
+                <p>With our platform, you can lodge your grievances anytime, anywhere</p>
+            </div>
+            <div class="container-element">
+                <i class="fa-brands fa-nfc-directional fa-2xl"></i>
+                <h3>Transparency</h3>
+                <p> Track the status of your grievances in real-time and receive updates directly.</p>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <h2>Considerations</h2>
+            </div>
+            <div class="container-element">
+                <i class="fa-solid fa-lines-leaning fa-2xl"></i>
+                <h3>Learning Curve</h3>
+                <p> As with any new system, there may be a learning curve involved in
+                    understanding and utilizing all the features of NGRS.</p>
+            </div>
+            <div class="container-element">
+                <i class="fa-solid fa-wifi fa-2xl"></i>
+                <h3>Internet Access </h3>
+                <p> Our platform is online-based. Therefore, users will need internet access to
+                    use our services</p>
+            </div>
+        </div>
+    </section>
+    <script src="https://kit.fontawesome.com/5a8048fc10.js" crossorigin="anonymous"></script>
+    <footer>
+        @2023 Team Codyaan
+    </footer>
+</body>
+</html>
